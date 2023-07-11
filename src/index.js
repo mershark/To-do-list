@@ -1,14 +1,39 @@
-import _ from 'lodash';
 import './style.css';
 
-function component() {
-  const element = document.createElement('div');
+const tasks = [
+  { description: 'wash the dishes', completed: false, index: 1 },
+  { description: 'complete To Do list project', completed: true, index: 2 },
+];
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
+const renderTasks = () => {
+  const todoList = document.getElementById('todo-list');
+  todoList.innerHTML = '';
 
-  return element;
-}
+  tasks.forEach(task => {
+    const listItem = document.createElement('li');
+    listItem.className = 'task-item';
 
-document.body.appendChild(component());
+    const checkbox = document.createElement('input');
+    checkbox.setAttribute('type', 'checkbox');
+    checkbox.checked = task.completed;
+    checkbox.addEventListener('change', () => {
+      task.completed = checkbox.checked;
+      listItem.className = task.completed ? 'task-item completed' : 'task-item';
+    });
+
+    const label = document.createElement('label');
+    label.innerHTML = `<span>${task.description}</span><i class="fas fa-ellipsis-v"></i>`;
+
+    listItem.appendChild(checkbox);
+    listItem.appendChild(label);
+    todoList.appendChild(listItem);
+  });
+};
+
+const clearCompleted = () => {
+};
+
+renderTasks();
+
+const clearButton = document.getElementById('clear-button');
+clearButton.addEventListener('click', clearCompleted);
