@@ -9,7 +9,7 @@ const renderTasks = () => {
   const todoList = document.getElementById('todo-list');
   todoList.innerHTML = '';
 
-  tasks.forEach(task => {
+  tasks.forEach((task) => {
     const listItem = document.createElement('li');
     listItem.className = 'task-item';
 
