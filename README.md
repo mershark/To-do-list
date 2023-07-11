@@ -29,9 +29,9 @@
 - [📝 License](#license)
 
 
-# 📖 Set Up Project With Webpack <a name="about-project"></a>
+# 📖 To Do List <a name="about-project"></a>
 
-In this project I build a simple yet powerful webpack boilerplate, which can be used as a starting point in a project. 
+In this project, I build a simple HTML list of To Do tasks. This simple web page was built using webpack and served by a webpack dev server.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -44,10 +44,9 @@ In this project I build a simple yet powerful webpack boilerplate, which can be 
   </ul>
 </details>
 
-### Key Features <a name="key-features"></a>
+### Key Feature <a name="key-features"></a>
 
-- Has HTML template to use.
-- You can view live edit in your localhost while editing.
+- Cancelation of completed tasks.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -65,7 +64,7 @@ Any code editors
 
 Clone this repository to your desired folder by.
 - cd my-folder
-- git clone [https://github.com/mershark/webpack-to-bundle-JavaScript]
+- git clone [https://github.com/mershark/To-do-list.git]
 - cd my-project
 
 
@@ -102,7 +101,8 @@ You can deploy this project by transferring the files in your local repository o
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
-- [ ] **More templates**
+- [ ] **Add to list functionality**
+- [ ] **Remove list functionality**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
