@@ -60,7 +60,7 @@ const renderTasks = (tasks) => {
     const deleteIcon = document.createElement('i');
     deleteIcon.className = 'fas fa-trash delete-icon';
     deleteIcon.style.display = 'none'; // Hide the delete icon initially
-
+    // eslint-disable-next-line no-unused-vars
     const deleteTaskHandler = (index) => {
       tasks = deleteTask(tasks, index);
       updateLocalStorage();
@@ -68,7 +68,12 @@ const renderTasks = (tasks) => {
     };
 
     deleteIcon.addEventListener('click', () => {
-      deleteTaskHandler(task.index);
+      const taskIndex = tasks.findIndex((t) => t.index === task.index);
+      if (taskIndex !== -1) {
+        tasks.splice(taskIndex, 1);
+        updateLocalStorage();
+        renderTasks(tasks);
+      }
     });
 
     const ellipsisIcon = document.createElement('i');
@@ -84,6 +89,14 @@ const renderTasks = (tasks) => {
     listItem.appendChild(deleteIcon);
     todoList.appendChild(listItem);
   });
+};
+
+const refreshTasks = () => {
+  const storedTasks = localStorage.getItem('tasks');
+  if (storedTasks) {
+    tasks = JSON.parse(storedTasks);
+    renderTasks(tasks);
+  }
 };
 
 const refreshIcon = document.getElementById('refresh-icon');
@@ -110,6 +123,7 @@ clearButton.addEventListener('click', () => {
   renderTasks(tasks);
 });
 
-renderTasks(tasks);
+// Call refreshTasks on page load
+window.addEventListener('load', refreshTasks);
 
-// Linter message: The 'editTaskDescription' function is purposely left unused for future updates.
+renderTasks(tasks);
