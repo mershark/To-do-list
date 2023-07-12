@@ -12,5 +12,8 @@ export const addTask = (tasks, description) => {
 
 export const deleteTask = (tasks, index) => tasks.filter((task) => task.index !== index);
 
-export const editTaskDescription = (tasks, index, newDescription) =>
-  tasks.map((task) => (task.index === index ? { ...task, description: newDescription } : task));
+export const editTaskDescription = (tasks, index, newDescription) => {
+  const updatedTasks = [...tasks];
+  updatedTasks[index] = { ...updatedTasks[index], description: newDescription };
+  return updatedTasks;
+};
