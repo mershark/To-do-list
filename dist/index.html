@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wbpack Exercise</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 <script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script></head>
-<body>
-    <h1>Hello webpacks!</h1>
+<body class="body">
+  <div id="container">
+    <h1 class="header">Today's To Do<i class="fas fa-sync" id="refresh-icon"></i></h1>
+    <div class="input-container">
+      <input class="addtaks" type="text" id="task-input" placeholder="Add to your list...">
+      <i class="fas fa-plus" id="add-icon"></i>
+    </div>
+    <div id="todo-list"></div>
+    <button id="clear-button">Clear all completed</button>
+  </div>
+  <script src="index.js"></script>
 </body>
 </html>
