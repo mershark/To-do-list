@@ -1,5 +1,10 @@
 import './style.css';
-import {clearCompleted, addTask, deleteTask, editTaskDescription,} from './crud.js';
+import {
+  clearCompleted,
+  addTask,
+  deleteTask,
+  editTaskDescription,
+} from './crud.js';
 
 let tasks = [];
 
