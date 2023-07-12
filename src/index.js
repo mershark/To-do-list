@@ -3,9 +3,8 @@ import './style.css';
 import {
   clearCompleted,
   addTask,
-  deleteTask,
 } from './crud.js';
-import { updateTaskStatus } from './interactive.js';
+import updateTaskStatus from './interactive.js';
 
 let tasks = [];
 
@@ -17,7 +16,7 @@ const renderTasks = (tasks) => {
   const todoList = document.getElementById('todo-list');
   todoList.innerHTML = '';
 
-  tasks.forEach((task, index) => {
+  tasks.forEach((task) => {
     const listItem = document.createElement('li');
     listItem.className = 'task-item';
 
@@ -28,7 +27,7 @@ const renderTasks = (tasks) => {
       task.completed = checkbox.checked;
       listItem.className = task.completed ? 'task-item completed' : 'task-item';
       updateLocalStorage();
-      updateTaskStatus(tasks, task.id, task.completed); // Call the updateTaskStatus function
+      updateTaskStatus(task); // Call the updateTaskStatus function
     });
 
     const label = document.createElement('label');

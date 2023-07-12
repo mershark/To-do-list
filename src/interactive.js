@@ -1,9 +1,13 @@
-export const updateTaskStatus = (task) => {
-  if (task.completed) {
-    // Perform actions when task is marked as completed
-    console.log(`Task "${task.description}" marked as completed`);
-  } else {
-    // Perform actions when task is marked as incomplete
-    console.log(`Task "${task.description}" marked as incomplete`);
+/* eslint-disable linebreak-style */
+const updateTaskStatus = (task) => {
+  const taskElement = document.getElementById(task.id);
+  if (taskElement) {
+    if (task.completed) {
+      taskElement.classList.add('completed');
+    } else {
+      taskElement.classList.remove('completed');
+    }
   }
 };
+
+export default updateTaskStatus;
