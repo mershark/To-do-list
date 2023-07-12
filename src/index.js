@@ -3,8 +3,8 @@ import './style.css';
 import {
   clearCompleted,
   addTask,
-  deleteTask,
 } from './crud.js';
+import updateTaskStatus from './interactive.js';
 
 let tasks = [];
 
@@ -27,6 +27,7 @@ const renderTasks = (tasks) => {
       task.completed = checkbox.checked;
       listItem.className = task.completed ? 'task-item completed' : 'task-item';
       updateLocalStorage();
+      updateTaskStatus(task); // Call the updateTaskStatus function
     });
 
     const label = document.createElement('label');
@@ -60,15 +61,9 @@ const renderTasks = (tasks) => {
     const deleteIcon = document.createElement('i');
     deleteIcon.className = 'fas fa-trash delete-icon';
     deleteIcon.style.display = 'none'; // Hide the delete icon initially
-    // eslint-disable-next-line no-unused-vars
-    const deleteTaskHandler = (index) => {
-      tasks = deleteTask(tasks, index);
-      updateLocalStorage();
-      renderTasks(tasks);
-    };
 
     deleteIcon.addEventListener('click', () => {
-      const taskIndex = tasks.findIndex((t) => t.index === task.index);
+      const taskIndex = tasks.findIndex((t) => t.id === task.id);
       if (taskIndex !== -1) {
         tasks.splice(taskIndex, 1);
         updateLocalStorage();
