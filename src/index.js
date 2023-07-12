@@ -1,9 +1,9 @@
+/* eslint-disable linebreak-style */
 import './style.css';
 import {
   clearCompleted,
   addTask,
   deleteTask,
-  editTaskDescription,
 } from './crud.js';
 
 let tasks = [];
@@ -57,19 +57,25 @@ const renderTasks = (tasks) => {
       editInput.focus();
     });
 
+    const deleteIcon = document.createElement('i');
+    deleteIcon.className = 'fas fa-trash delete-icon';
+    deleteIcon.style.display = 'none'; // Hide the delete icon initially
+
+    const deleteTaskHandler = (index) => {
+      tasks = deleteTask(tasks, index);
+      updateLocalStorage();
+      renderTasks(tasks);
+    };
+
+    deleteIcon.addEventListener('click', () => {
+      deleteTaskHandler(task.index);
+    });
+
     const ellipsisIcon = document.createElement('i');
     ellipsisIcon.className = 'fas fa-ellipsis-v ellipsis-icon';
     ellipsisIcon.addEventListener('click', () => {
       deleteIcon.style.display = 'inline'; // Show the delete icon
       ellipsisIcon.style.display = 'none'; // Hide the ellipsis icon
-    });
-
-    const deleteIcon = document.createElement('i');
-    deleteIcon.className = 'fas fa-trash delete-icon';
-    deleteIcon.style.display = 'none'; // Hide the delete icon initially
-
-    deleteIcon.addEventListener('click', () => {
-      deleteTaskHandler(task.index);
     });
 
     listItem.appendChild(checkbox);
@@ -104,16 +110,6 @@ clearButton.addEventListener('click', () => {
   renderTasks(tasks);
 });
 
-const deleteTaskHandler = (index) => {
-  tasks = deleteTask(tasks, index);
-  updateLocalStorage();
-  renderTasks(tasks);
-};
-
-const editTaskDescriptionHandler = (index, newDescription) => {
-  tasks = editTaskDescription(tasks, index, newDescription);
-  updateLocalStorage();
-  renderTasks(tasks);
-};
-
 renderTasks(tasks);
+
+// Linter message: The 'editTaskDescription' function is purposely left unused for future updates.

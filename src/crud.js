@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 export const clearCompleted = (tasks) => tasks.filter((task) => !task.completed);
 
 export const addTask = (tasks, description) => {
