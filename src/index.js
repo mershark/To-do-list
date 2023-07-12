@@ -5,6 +5,7 @@ import {
   addTask,
   deleteTask,
 } from './crud.js';
+import { updateTaskStatus } from './interactive.js';
 
 let tasks = [];
 
