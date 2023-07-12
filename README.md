@@ -31,7 +31,7 @@
 
 # 📖 To Do List <a name="about-project"></a>
 
-In this project, I build a simple HTML list of To Do tasks. This simple web page was built using webpack and served by a webpack dev server.
+In this project, I build a To do webpage that enable users to add their to do list, edit, delete and mark tasks as completed. This web page was built using webpack and served by a webpack dev server.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -46,7 +46,11 @@ In this project, I build a simple HTML list of To Do tasks. This simple web page
 
 ### Key Feature <a name="key-features"></a>
 
-- Cancelation of completed tasks.
+- Adding a new task to your to do list
+- Deleting a task
+- Editing task descriptions.
+- Marking task as completed
+- Clearing all completed tasks
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -101,8 +105,8 @@ You can deploy this project by transferring the files in your local repository o
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
-- [ ] **Add to list functionality**
-- [ ] **Remove list functionality**
+- [ ] **Re-arranging of tasks**
+- [ ] **Refreshing of list**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
